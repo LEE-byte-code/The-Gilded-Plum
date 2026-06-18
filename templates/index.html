@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Gilded Plum — an exquisite fine dining experience featuring seasonal tasting menus, craft cocktails, and an intimate Chef's Table. Book your table today.">
+    <title>The Gilded Plum | Fine Dining & Spirits</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <script src="{% static 'script.js' %}" defer></script>
+</head>
+<body>
+    <div class="page-skeleton" id="page-skeleton" aria-hidden="true">
+        <div class="page-skeleton-inner">
+            <div class="page-skeleton-title">The Gilded Plum</div>
+            <div class="page-skeleton-bar"></div>
+        </div>
+    </div>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <nav>
+            <div class="logo">The Gilded Plum</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="nav-cta"><a href="#" class="btn-nav" data-open-modal="reservation">Book a Table</a></li>
+            </ul>
+            <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="hero" class="hero">
+            <div class="hero-content reveal reveal-up">
+                <h1>Exquisite Flavors, <br>Gilded Moments.</h1>
+                <p>Experience the art of fine dining where every plate is a masterpiece.</p>
+                <a href="#" class="btn" data-open-modal="reservation">Book Your Table</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text reveal reveal-left">
+                        <h2>Our Story</h2>
+                        <p>The Gilded Plum was born from a simple belief: every memorable moment begins around a table.</p>
+                        <p>What started as a passion for bringing people together has grown into a place where timeless culinary traditions meet bold creativity. Inspired by the changing seasons, our chefs carefully select the finest ingredients, allowing nature's freshest flavors to guide every dish we create.</p>
+                        <p>The name The Gilded Plum reflects our philosophy—finding beauty in simplicity and transforming exceptional ingredients into extraordinary experiences. From our signature house-infused plum reduction to our handcrafted gold-dusted chocolate creations, every recipe tells a story of craftsmanship, patience, and imagination.</p>
+                        <p>Step inside, and you'll discover more than a restaurant. Warm lighting, elegant interiors, and the aroma of fresh cuisine create an atmosphere where celebrations are shared, conversations linger, and memories are made.</p>
+                        <p>Whether you're joining us for a quiet dinner, a family gathering, or a special milestone, our mission remains the same: to serve food that nourishes the soul, inspires connection, and leaves every guest with a story worth sharing.</p>
+                        <p>Welcome to The Gilded Plum—where every meal becomes part of your story.</p>
+                    </div>
+                    <div class="about-image img-skeleton reveal reveal-right">
+                        <picture>
+                            <source srcset="/images/klara-kulikova-CPMZguYURMw-unsplash.webp" type="image/webp">
+                            <img decoding="async" loading="lazy" src="/images/klara-kulikova-CPMZguYURMw-unsplash.jpg" alt="Exquisite appetizer with roasted plum and microgreens">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2 class="reveal reveal-up">A Taste of Excellence</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item img-skeleton reveal reveal-scale">
+                        <picture>
+                            <source srcset="/images/chad-montano-lP5MCM6nZ5A-unsplash.webp" type="image/webp">
+                            <img decoding="async" loading="lazy" src="/images/chad-montano-lP5MCM6nZ5A-unsplash.jpg" alt="Wood-fired flatbread with fresh herbs, cherry tomatoes, and shaved parmesan">
+                        </picture>
+                        <div class="gallery-overlay">
+                            <span class="view-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="gallery-item img-skeleton reveal reveal-scale">
+                        <picture>
+                            <source srcset="/images/lily-banse--YHSwy6uqvk-unsplash.webp" type="image/webp">
+                            <img decoding="async" loading="lazy" src="/images/lily-banse--YHSwy6uqvk-unsplash.jpg" alt="Pan-seared wild salmon served with asparagus and fresh salad">
+                        </picture>
+                        <div class="gallery-overlay">
+                            <span class="view-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="gallery-item img-skeleton reveal reveal-scale">
+                        <picture>
+                            <source srcset="/images/brooke-lark-oaz0raysASk-unsplash.webp" type="image/webp">
+                            <img decoding="async" loading="lazy" src="/images/brooke-lark-oaz0raysASk-unsplash.jpg" alt="Signature wild berry soufflé dusted with powdered sugar and mint garnish">
+                        </picture>
+                        <div class="gallery-overlay">
+                            <span class="view-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="gallery-item img-skeleton reveal reveal-scale">
+                        <picture>
+                            <source srcset="/images/anna-pelzer-IGfIGP5ONV0-unsplash.webp" type="image/webp">
+                            <img decoding="async" loading="lazy" src="/images/anna-pelzer-IGfIGP5ONV0-unsplash.jpg" alt="Artisanal spring harvest salad with organic microgreens, radishes, and edible flowers">
+                        </picture>
+                        <div class="gallery-overlay">
+                            <span class="view-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="gallery-item img-skeleton reveal reveal-scale">
+                        <picture>
+                            <source srcset="/images/lefteris-kallergis-etWlaoFnTl4-unsplash.webp" type="image/webp">
+                            <img decoding="async" loading="lazy" src="/images/lefteris-kallergis-etWlaoFnTl4-unsplash.jpg" alt="Prime pan-seared steak cooked medium-rare and served with roasted baby asparagus">
+                        </picture>
+                        <div class="gallery-overlay">
+                            <span class="view-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="gallery-item img-skeleton reveal reveal-scale">
+                        <picture>
+                            <source srcset="/images/kevin-kelly-PPneSBqfCCU-unsplash.webp" type="image/webp">
+                            <img decoding="async" loading="lazy" src="/images/kevin-kelly-PPneSBqfCCU-unsplash.jpg" alt="Plum glazed roasted duck breast with parsnip puree and gold flakes">
+                        </picture>
+                        <div class="gallery-overlay">
+                            <span class="view-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="menu-preview reveal reveal-up">
+            <div class="container">
+                <h2>Chef's Selection</h2>
+
+                <!-- Filter Tabs -->
+                <div class="menu-tabs">
+                    <button class="menu-tab active" data-category="all">All</button>
+                    <button class="menu-tab" data-category="starters">Starters</button>
+                    <button class="menu-tab" data-category="mains">Mains</button>
+                    <button class="menu-tab" data-category="desserts">Desserts</button>
+                    <button class="menu-tab" data-category="drinks">Wines & Cocktails</button>
+                </div>
+
+                <!-- Menu Cards Grid -->
+                <div class="menu-grid">
+                    <div class="menu-category-heading" data-category="starters">
+                        <span class="heading-line"></span>
+                        <span class="heading-text">Starters</span>
+                        <span class="heading-line"></span>
+                    </div>
+
+                    <!-- Starter 1 -->
+                    <div class="menu-card" data-category="starters">
+                        <div class="menu-card-img img-skeleton">
+                            <picture>
+                                <source srcset="/images/pexels-gislaine-souza-1537222927-27200330.webp" type="image/webp">
+                                <img decoding="async" loading="lazy" src="/images/pexels-gislaine-souza-1537222927-27200330.jpg" alt="Artisanal Plum Crostini">
+                            </picture>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3>Artisanal Plum Crostini</h3>
+                                <span class="price">$16</span>
+                            </div>
+                            <p class="description">Whipped goat cheese, fresh plum slices, rosemary honey drizzle, and fresh thyme on toasted sourdough.</p>
+                            <div class="menu-tags">
+                                <span class="tag tag-veg">Vegetarian</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Starter 2 -->
+                    <div class="menu-card" data-category="starters">
+                        <div class="menu-card-img img-skeleton">
+                            <picture>
+                                <source srcset="/images/anna-pelzer-IGfIGP5ONV0-unsplash.webp" type="image/webp">
+                                <img decoding="async" loading="lazy" src="/images/anna-pelzer-IGfIGP5ONV0-unsplash.jpg" alt="Burrata & Heirloom Beets">
+                            </picture>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3>Burrata & Heirloom Beets</h3>
+                                <span class="price">$20</span>
+                            </div>
+                            <p class="description">Creamy burrata, roasted baby beets, toasted pistachios, and aged white balsamic glaze.</p>
+                            <div class="menu-tags">
+                                <span class="tag tag-veg">Vegetarian</span>
+                                <span class="tag tag-gf">Gluten Free</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Starter 3: Spritz moved here -->
+                    <div class="menu-card" data-category="starters">
+                        <div class="menu-card-img img-skeleton">
+                            <picture>
+                                <source srcset="/images/pexels-valeriya-20505438.webp" type="image/webp">
+                                <img decoding="async" loading="lazy" src="/images/pexels-valeriya-20505438.jpg" alt="Plum & Lavender Spritz">
+                            </picture>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3>Plum & Lavender Spritz</h3>
+                                <span class="price">$19</span>
+                            </div>
+                            <p class="description">House-made plum liqueur, fresh organic lavender, premium Prosecco, and sparkling soda.</p>
+                            <div class="menu-tags">
+                                <span class="tag tag-sig">Aperitif</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category-heading" data-category="mains">
+                        <span class="heading-line"></span>
+                        <span class="heading-text">Mains</span>
+                        <span class="heading-line"></span>
+                    </div>
+
+                    <!-- Main 1 -->
+                    <div class="menu-card" data-category="mains">
+                        <div class="menu-card-img img-skeleton">
+                            <picture>
+                                <source srcset="/images/kevin-kelly-PPneSBqfCCU-unsplash.webp" type="image/webp">
+                                <img decoding="async" loading="lazy" src="/images/kevin-kelly-PPneSBqfCCU-unsplash.jpg" alt="Plum Glazed Duck">
+                            </picture>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3>Plum Glazed Duck</h3>
+                                <span class="price">$38</span>
+                            </div>
+                            <p class="description">Slow-roasted duck breast with a spiced plum reduction, parsnip purée, and seasonal baby rainbow carrots.</p>
+                            <div class="menu-tags">
+                                <span class="tag tag-sig">Chef's Signature</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main 2 -->
+                    <div class="menu-card" data-category="mains">
+                        <div class="menu-card-img img-skeleton">
+                            <picture>
+                                <source srcset="/images/pexels-yulia-oliinychenko-849416506-19651271.webp" type="image/webp">
+                                <img decoding="async" loading="lazy" src="/images/pexels-yulia-oliinychenko-849416506-19651271.jpg" alt="Gilded Saffron Risotto">
+                            </picture>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3>Gilded Saffron Risotto</h3>
+                                <span class="price">$32</span>
+                            </div>
+                            <p class="description">Creamy Carnaroli rice infused with premium saffron, wild chanterelles, and topped with edible 24k gold leaf.</p>
+                            <div class="menu-tags">
+                                <span class="tag tag-sig">Chef's Signature</span>
+                                <span class="tag tag-veg">Vegetarian</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main 3 -->
+                    <div class="menu-card" data-category="mains">
+                        <div class="menu-card-img img-skeleton">
+                            <picture>
+                                <source srcset="/images/lefteris-kallergis-etWlaoFnTl4-unsplash.webp" type="image/webp">
+                                <img decoding="async" loading="lazy" src="/images/lefteris-kallergis-etWlaoFnTl4-unsplash.jpg" alt="Truffle Butter Filet Mignon">
+                            </picture>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3>Truffle Butter Filet Mignon</h3>
+                                <span class="price">$45</span>
+                            </div>
+                            <p class="description">Pan-seared prime beef tenderloin with black truffle butter, charred asparagus, and potato fondant.</p>
+                            <div class="menu-tags">
+                                <span class="tag">Prime Cut</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category-heading" data-category="desserts">
+                        <span class="heading-line"></span>
+                        <span class="heading-text">Desserts</span>
+                        <span class="heading-line"></span>
+                    </div>
+
+                    <!-- Dessert 1 -->
+                    <div class="menu-card" data-category="desserts">
+                        <div class="menu-card-img img-skeleton">
+                            <picture>
+                                <source srcset="/images/brooke-lark-oaz0raysASk-unsplash.webp" type="image/webp">
+                                <img decoding="async" loading="lazy" src="/images/brooke-lark-oaz0raysASk-unsplash.jpg" alt="Wild Berry Soufflé">
+                            </picture>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3>Wild Berry Soufflé</h3>
+                                <span class="price">$16</span>
+                            </div>
+                            <p class="description">Light and airy soufflé with hand-picked berries and a warm vanilla bean crème anglaise.</p>
+                            <div class="menu-tags">
+                                <span class="tag tag-veg">Vegetarian</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dessert 2 -->
+                    <div class="menu-card" data-category="desserts">
+                        <div class="menu-card-img img-skeleton">
+                            <picture>
+                                <source srcset="/images/pexels-paul-17199062.webp" type="image/webp">
+                                <img decoding="async" loading="lazy" src="/images/pexels-paul-17199062.jpg" alt="Deconstructed Plum Tart">
+                            </picture>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3>Deconstructed Plum Tart</h3>
+                                <span class="price">$18</span>
+                            </div>
+                            <p class="description">Rich dark chocolate ganache, spiced plum compote, hazelnut praline, and gold dust.</p>
+                            <div class="menu-tags">
+                                <span class="tag tag-veg">Vegetarian</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-category-heading" data-category="drinks">
+                        <span class="heading-line"></span>
+                        <span class="heading-text">Wines &amp; Cocktails</span>
+                        <span class="heading-line"></span>
+                    </div>
+
+                    <!-- Drink 1 -->
+                    <div class="menu-card" data-category="drinks">
+                        <div class="menu-card-img img-skeleton">
+                            <picture>
+                                <source srcset="/images/pexels-pedrofurtadoo-28617327.webp" type="image/webp">
+                                <img decoding="async" loading="lazy" src="/images/pexels-pedrofurtadoo-28617327.jpg" alt="The Gilded Old Fashioned">
+                            </picture>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3>Gilded Old Fashioned</h3>
+                                <span class="price">$22</span>
+                            </div>
+                            <p class="description">Aged bourbon, plum bitters, demerara sugar syrup, orange peel, and edible gold flakes.</p>
+                            <div class="menu-tags">
+                                <span class="tag tag-sig">Signature Cocktail</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Drink 2 -->
+                    <div class="menu-card" data-category="drinks">
+                        <div class="menu-card-img img-skeleton">
+                            <picture>
+                                <source srcset="/images/matthieu-joannon-6ciLddToTgM-unsplash.webp" type="image/webp">
+                                <img decoding="async" loading="lazy" src="/images/matthieu-joannon-6ciLddToTgM-unsplash.jpg" alt="Sommelier Red Wine Pouring">
+                            </picture>
+                        </div>
+                        <div class="menu-card-content">
+                            <div class="menu-card-header">
+                                <h3>Reserve Cabernet Sauvignon</h3>
+                                <span class="price">$25</span>
+                            </div>
+                            <p class="description">A deep, complex red vintage selected specifically by our resident sommelier to pair with steaks.</p>
+                            <div class="menu-tags">
+                                <span class="tag">By the Glass</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chef's Table Experience Section -->
+        <section id="chefs-table-booking" class="chefs-table-section">
+            <div class="container">
+                <div class="chefs-table-card reveal reveal-scale">
+                    <div class="chefs-table-content">
+                        <span class="card-badge">Exclusive Culinary Art</span>
+                        <h2>The Chef's Table Experience</h2>
+                        <p class="experience-desc">An intimate, immersive 7-course blind tasting journey hosted by our Head Chef. Watch culinary artistry unfold in real-time within our private kitchen gallery.</p>
+
+                        <div class="experience-details">
+                            <div class="detail-item">
+                                <strong>Includes:</strong> 7 courses + Premium Sommelier wine pairing
+                            </div>
+                            <div class="detail-item">
+                                <strong>Seating:</strong> Limited to 6 guests per evening
+                            </div>
+                            <div class="detail-item">
+                                <strong>Availability:</strong> <span class="seat-counter" id="chef-seat-counter">Only {{ chef_available }} seat{{ chef_available|pluralize }} remaining for tonight</span>
+                            </div>
+                        </div>
+
+                        <div class="live-seating-visual" id="chef-seating-dots">
+                            <!-- Filled by JS with server data -->
+                        </div>
+
+                        <button class="btn ticket-btn" data-open-modal="reservation" data-preselect-zone="chef">
+                            <span class="btn-text">Reserve Chef's Table — $180/guest</span>
+                            <span class="ticket-stub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M13 5v2"></path><path d="M13 17v2"></path><path d="M13 11v2"></path></svg>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="chefs-table-img-container img-skeleton">
+                        <picture>
+                            <source srcset="/images/pexels-alesiakozik-6544221.webp" type="image/webp">
+                            <img decoding="async" loading="lazy" src="/images/pexels-alesiakozik-6544221.jpg" alt="Chef plating an exquisite dessert at the kitchen counter">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container reveal reveal-up">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>The Gilded Plum</h3>
+                    <p>123 Culinary Lane, Gastronomy District</p>
+                    <p>Reservations: (555) 123-4567</p>
+                </div>
+                <div class="footer-actions">
+                    <button class="btn" data-open-modal="reservation">Book a Table</button>
+                    <div class="footer-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+                    <p class="copyright">&copy; 2026 The Gilded Plum. All rights reserved.</p>
+                </div>
+            </footer>
+            
+            <!-- Contact / Inquiry Section -->
+            <section id="inquiry" class="about" style="padding-top:0">
+                <div class="container">
+                    <div class="about-grid" style="grid-template-columns:1fr 1fr">
+                        <div class="about-text reveal reveal-left">
+                            <h2 style="text-align:left;margin-bottom:1rem">Have a Question?</h2>
+                            <p style="margin-bottom:1rem">Whether it's a private event, dietary concern, or simply a question about our menu — we'd love to hear from you.</p>
+                            <p style="opacity:0.8;font-size:0.9rem">We typically respond within 2 hours during service hours.</p>
+                        </div>
+                        <div class="reveal reveal-right">
+                            <form method="post" action="{% url 'contact' %}" style="background:var(--color-surface);padding:1.5rem;border-radius:8px;border:1px solid var(--color-border)">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="contact-name">Name</label>
+                                        <input type="text" id="contact-name" name="name" required placeholder="Your name" value="{{ contact_form.name.value|default:'' }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-email">Email</label>
+                                        <input type="email" id="contact-email" name="email" required placeholder="you@example.com" value="{{ contact_form.email.value|default:'' }}">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="contact-phone">Phone (optional)</label>
+                                        <input type="tel" id="contact-phone" name="phone" placeholder="(555) 000-0000" value="{{ contact_form.phone.value|default:'' }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-pref">Preferred Contact</label>
+                                        <select id="contact-pref" name="preferred_contact">
+                                            <option value="email" {% if contact_form.preferred_contact.value == 'email' %}selected{% endif %}>Email</option>
+                                            <option value="phone" {% if contact_form.preferred_contact.value == 'phone' %}selected{% endif %}>Phone</option>
+                                            <option value="either" {% if contact_form.preferred_contact.value == 'either' %}selected{% endif %}>Either</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-message">Message</label>
+                                    <textarea id="contact-message" name="message" rows="4" required placeholder="Tell us about your event, dietary needs, or any questions...">{{ contact_form.message.value|default:'' }}</textarea>
+                                </div>
+                                <button type="submit" class="btn" style="width:100%">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    <!-- Soundscape Controller -->
+    <div class="soundscape-controller" id="soundscape-player">
+        <button class="soundscape-toggle" aria-label="Toggle ambient music" id="music-toggle-btn">
+            <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <svg class="icon-pause hidden" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="4" x2="18" y2="20"></line><line x1="6" y1="4" x2="6" y2="20"></line></svg>
+        </button>
+        <div class="soundscape-info">
+            <select id="soundscape-select" aria-label="Select ambient soundscape">
+                <option value="off" selected>Mute Music</option>
+                <option value="/audio/vintage-jazz-lounge.mp3">Vintage Jazz Lounge</option>
+                <option value="/audio/sommelier-chamber.mp3">Sommelier Chamber</option>
+                <option value="/audio/acoustic-vinyl-crackle.mp3">Acoustic Vinyl Crackle</option>
+            </select>
+        </div>
+        <audio id="ambient-audio" loop></audio>
+    </div>
+
+    <!-- Reservation Modal -->
+    <div class="modal-backdrop" id="reservation-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal aria-label="Close booking modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <div class="reservation-form-container">
+                <h2 id="modal-title">Table Reservation</h2>
+                <p class="modal-subtitle">Join us for an exquisite dining experience. Confirm your table below.</p>
+
+                {% if errors %}
+                <div style="color: var(--color-error); margin-bottom: 1rem; padding: 0.75rem; border: 1px solid var(--color-error); border-radius: 8px;">
+                    Please correct the errors below.
+                </div>
+                {% endif %}
+
+                <form id="reservation-form" method="post" action="{% url 'book' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="res-name">Full Name</label>
+                        <input type="text" id="res-name" name="name" required placeholder="Alexander Mercer" value="{{ form.name.value|default:'' }}">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="res-email">Email Address</label>
+                            <input type="email" id="res-email" name="email" required placeholder="alex@example.com" value="{{ form.email.value|default:'' }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="res-phone">Phone Number</label>
+                            <input type="tel" id="res-phone" name="phone" required placeholder="(555) 000-0000" value="{{ form.phone.value|default:'' }}">
+                        </div>
+                    </div>
+
+                    <div class="form-row flex-three">
+                        <div class="form-group">
+                            <label for="res-date">Date</label>
+                            <input type="date" id="res-date" name="date" required value="{{ form.date.value|default:'' }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="res-time">Preferred Time</label>
+                            <select id="res-time" name="time" required>
+                                <option value="" disabled {% if not form.time.value %}selected{% endif %}>Select Time</option>
+                                <optgroup label="Dinner Seating">
+                                    <option value="5:00 PM" {% if form.time.value == '5:00 PM' %}selected{% endif %}>5:00 PM</option>
+                                    <option value="5:30 PM" {% if form.time.value == '5:30 PM' %}selected{% endif %}>5:30 PM</option>
+                                    <option value="6:00 PM" {% if form.time.value == '6:00 PM' %}selected{% endif %}>6:00 PM</option>
+                                    <option value="6:30 PM" {% if form.time.value == '6:30 PM' %}selected{% endif %}>6:30 PM</option>
+                                    <option value="7:00 PM" {% if form.time.value == '7:00 PM' %}selected{% endif %}>7:00 PM</option>
+                                    <option value="7:30 PM" {% if form.time.value == '7:30 PM' %}selected{% endif %}>7:30 PM</option>
+                                    <option value="8:00 PM" {% if form.time.value == '8:00 PM' %}selected{% endif %}>8:00 PM</option>
+                                    <option value="8:30 PM" {% if form.time.value == '8:30 PM' %}selected{% endif %}>8:30 PM</option>
+                                    <option value="9:00 PM" {% if form.time.value == '9:00 PM' %}selected{% endif %}>9:00 PM</option>
+                                    <option value="9:30 PM" {% if form.time.value == '9:30 PM' %}selected{% endif %}>9:30 PM</option>
+                                </optgroup>
+                                <optgroup label="Lunch Seating">
+                                    <option value="12:00 PM" {% if form.time.value == '12:00 PM' %}selected{% endif %}>12:00 PM</option>
+                                    <option value="12:30 PM" {% if form.time.value == '12:30 PM' %}selected{% endif %}>12:30 PM</option>
+                                    <option value="1:00 PM" {% if form.time.value == '1:00 PM' %}selected{% endif %}>1:00 PM</option>
+                                    <option value="1:30 PM" {% if form.time.value == '1:30 PM' %}selected{% endif %}>1:30 PM</option>
+                                    <option value="2:00 PM" {% if form.time.value == '2:00 PM' %}selected{% endif %}>2:00 PM</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="res-guests">Guests</label>
+                            <select id="res-guests" name="guests" required>
+                                {% for i in "123456789"|make_list %}
+                                <option value="{{ i }}" {% if form.guests.value|stringformat:"s" == i %}selected{% elif not form.guests.value and i == "2" %}selected{% endif %}>{{ i }} Guest{{ i|pluralize }}</option>
+                                {% endfor %}
+                                <option value="10" {% if form.guests.value == 10 %}selected{% endif %}>10 Guests</option>
+                                <option value="15" {% if form.guests.value == 15 %}selected{% endif %}>15 Guests</option>
+                                <option value="20" {% if form.guests.value == 20 %}selected{% endif %}>20 Guests</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Dining Zone selector -->
+                    <div class="form-group">
+                        <label>Select Dining Zone</label>
+                        <div class="floor-plan-container">
+                            <svg viewBox="0 0 400 240" class="floor-plan-svg" id="floor-plan-map">
+                                <rect x="10" y="10" width="380" height="220" rx="12" fill="none" stroke="rgba(212, 175, 55, 0.2)" stroke-width="1"/>
+                                <path d="M40 10 L360 10 L360 40 L40 40 Z" class="svg-zone" data-zone="window" />
+                                <text x="200" y="28" class="svg-zone-label">Window Seats</text>
+                                <path d="M10 50 L60 50 L60 210 L10 210 Z" class="svg-zone" data-zone="booth" />
+                                <text x="35" y="130" class="svg-zone-label vertical">Booths</text>
+                                <rect x="80" y="60" width="210" height="120" rx="8" class="svg-zone" data-zone="hall" />
+                                <text x="185" y="125" class="svg-zone-label">Grand Hall</text>
+                                <path d="M220 190 L390 190 L390 230 L220 230 Z" class="svg-zone" data-zone="bar" />
+                                <text x="305" y="215" class="svg-zone-label">Sommelier Bar</text>
+                                <path d="M310 50 L390 50 L390 170 L310 170 Z" class="svg-zone" data-zone="chef" />
+                                <text x="350" y="115" class="svg-zone-label vertical">Chef's Table</text>
+                            </svg>
+                        </div>
+                        <div class="zone-selector-grid">
+                            <div class="zone-card active" data-zone="hall">
+                                <span class="zone-name">Grand Hall</span>
+                                <span class="zone-desc">Elegant hall atmosphere</span>
+                            </div>
+                            <div class="zone-card" data-zone="window">
+                                <span class="zone-name">Window Seating</span>
+                                <span class="zone-desc">Views of Gastronomy District</span>
+                            </div>
+                            <div class="zone-card" data-zone="booth">
+                                <span class="zone-name">Saffron Booths</span>
+                                <span class="zone-desc">Semi-private velvet booths</span>
+                            </div>
+                            <div class="zone-card" data-zone="bar">
+                                <span class="zone-name">Sommelier Bar</span>
+                                <span class="zone-desc">High stools next to wine cellar</span>
+                            </div>
+                            <div class="zone-card" data-zone="chef">
+                                <span class="zone-name">The Chef's Table</span>
+                                <span class="zone-desc">Kitchen counter tasting</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="res-zone" name="zone" value="{% if form.zone.value %}{{ form.zone.value }}{% else %}hall{% endif %}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="res-special">Special Requests (Optional)</label>
+                        <textarea id="res-special" name="special_requests" placeholder="Let us know about dietary restrictions, allergies, or special celebrations..." rows="3">{{ form.special_requests.value|default:'' }}</textarea>
+                    </div>
+
+                    <button type="submit" class="btn submit-btn">Confirm Reservation</button>
+                </form>
+            </div>
+
+            <div class="reservation-success hidden">
+                <div class="success-icon">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <h2>Reservation Confirmed</h2>
+                <p class="success-subtitle">Your table at The Gilded Plum has been secured. We have sent a confirmation details card to your email.</p>
+
+                <div class="success-summary">
+                    <!-- Populated dynamically via JS from URL params -->
+                </div>
+
+                <button class="btn success-close-btn">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Lightbox Modal -->
+    <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image lightbox" tabindex="-1">
+        <button class="lightbox-close" data-close-lightbox aria-label="Close lightbox">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <button class="lightbox-prev" aria-label="Previous image">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="lightbox-content-wrapper">
+            <img class="lightbox-img" src="" alt="Enlarged gallery view">
+            <p class="lightbox-caption"></p>
+        </div>
+        <button class="lightbox-next" aria-label="Next image">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+    </div>
+
+    <!-- Ingredient Details Drawer -->
+    <div class="details-drawer" id="details-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" tabindex="-1">
+        <div class="drawer-backdrop" id="drawer-backdrop"></div>
+        <div class="drawer-content">
+            <button class="drawer-close" aria-label="Close details panel" id="drawer-close-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <div class="drawer-body">
+                <div class="drawer-img-wrapper">
+                    <img id="drawer-img" src="" alt="Dish image">
+                </div>
+                <div class="drawer-text-content">
+                    <span class="drawer-category" id="drawer-category">Category</span>
+                    <h2 id="drawer-title">Dish Name</h2>
+                    <p class="drawer-description" id="drawer-desc">Detailed description goes here.</p>
+
+                    <div class="drawer-section accordion-section" data-accordion>
+                        <button class="accordion-toggle" aria-expanded="true">
+                            <h3>Key Ingredients</h3>
+                            <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content" style="display: block;">
+                            <p id="drawer-ingredients">Ingredients list.</p>
+                        </div>
+                    </div>
+
+                    <div class="drawer-section accordion-section" data-accordion>
+                        <button class="accordion-toggle" aria-expanded="false">
+                            <h3>Nutritional Profile (Per Serving)</h3>
+                            <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content" style="display: none;">
+                            <div class="nutrition-grid">
+                                <div class="nutrition-item">
+                                    <span class="nutrition-val" id="nut-cal">0</span>
+                                    <span class="nutrition-label">Calories</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-val" id="nut-protein">0g</span>
+                                    <span class="nutrition-label">Protein</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-val" id="nut-carbs">0g</span>
+                                    <span class="nutrition-label">Carbs</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-val" id="nut-fat">0g</span>
+                                    <span class="nutrition-label">Fat</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="drawer-section accordion-section" data-accordion>
+                        <button class="accordion-toggle" aria-expanded="false">
+                            <h3>Dietary & Allergens</h3>
+                            <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content" style="display: none;">
+                            <div class="allergen-badges" id="drawer-allergens">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="drawer-section accordion-section chefs-note" data-accordion>
+                        <button class="accordion-toggle" aria-expanded="false">
+                            <h3>Chef's Note</h3>
+                            <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content" style="display: none;">
+                            <p id="drawer-chefs-note">The story behind the dish.</p>
+                        </div>
+                    </div>
+
+                    <div class="drawer-section accordion-section sommelier-pairing" data-accordion>
+                        <button class="accordion-toggle" aria-expanded="false">
+                            <h3>Sommelier's Pairing</h3>
+                            <svg class="accordion-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                        <div class="accordion-content" style="display: none;">
+                            <p id="drawer-pairing">Wine recommendation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <script>
+        // Override Chef's Table availability with server data
+        document.addEventListener('DOMContentLoaded', function() {
+            var chefData = {{ chef_data_json|safe }};
+            var seatCounter = document.getElementById('chef-seat-counter');
+            var dotsContainer = document.getElementById('chef-seating-dots');
+            if (seatCounter) {
+                seatCounter.textContent = 'Only ' + chefData.available_seats + ' seat' + (chefData.available_seats !== 1 ? 's' : '') + ' remaining for tonight';
+            }
+            if (dotsContainer) {
+                dotsContainer.innerHTML = '';
+                for (var i = 0; i < chefData.total_seats; i++) {
+                    var dot = document.createElement('div');
+                    dot.className = 'seat-dot';
+                    if (i < (chefData.total_seats - chefData.available_seats)) {
+                        dot.classList.add('occupied');
+                    }
+                    dotsContainer.appendChild(dot);
+                }
+            }
+        });
+
+        // Show success state if ?confirmed=true
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            if (params.get('confirmed') === 'true') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    var modal = document.getElementById('reservation-modal');
+                    var formState = document.querySelector('.reservation-form-container');
+                    var successState = document.querySelector('.reservation-success');
+                    var summary = document.querySelector('.success-summary');
+                    if (modal && formState && successState) {
+                        formState.classList.add('hidden');
+                        successState.classList.remove('hidden');
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                    if (summary) {
+                        summary.innerHTML = '<strong>Status:</strong> <span class="badge">Confirmed</span>';
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

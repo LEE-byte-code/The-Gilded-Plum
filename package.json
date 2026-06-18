@@ -1,0 +1,12 @@
+{
+  "name": "the-gilded-plum",
+  "version": "1.0.0",
+  "description": "The Gilded Plum — Fine dining restaurant website",
+  "private": true,
+  "scripts": {
+    "convert-images": "node convert-images.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}
