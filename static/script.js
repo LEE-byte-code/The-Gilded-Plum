@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initMobileMenu();
     initScrollReveal();
     initMenuFilter();
+    initPriceCountUp();
     initReservationModal();
     initGalleryLightbox();
     initSoundscape();
@@ -192,6 +193,48 @@ function initScrollReveal() {
 }
 
 /**
+ * Price count-up animation for menu cards
+ */
+function initPriceCountUp() {
+    const prices = document.querySelectorAll('.menu-card-header .price');
+    prices.forEach(el => {
+        const originalText = el.textContent;
+        const target = parseFloat(originalText.replace('$', ''));
+        if (isNaN(target)) return;
+        el.dataset.target = target;
+        el.textContent = '$0';
+    });
+
+    const priceObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseFloat(el.dataset.target);
+                if (!target || el.dataset.animated) return;
+                el.dataset.animated = 'true';
+                const duration = 800;
+                const steps = 20;
+                const stepTime = duration / steps;
+                let current = 0;
+                const increment = target / steps;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        el.textContent = `$${target}`;
+                        clearInterval(timer);
+                    } else {
+                        el.textContent = `$${Math.round(current)}`;
+                    }
+                }, stepTime);
+                priceObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    prices.forEach(el => priceObserver.observe(el));
+}
+
+/**
  * Chef's Selection Menu Filtering
  */
 function initMenuFilter() {
@@ -233,13 +276,25 @@ function initMenuFilter() {
                 });
 
                 menuGrid.classList.remove('filtering-active');
+
+                // Empty state
+                const emptyState = document.getElementById('menu-empty');
+                const visible = menuGrid.querySelectorAll('.menu-card:not(.hidden)');
+                if (category !== 'all' && visible.length === 0) {
+                    if (!emptyState) {
+                        const msg = document.createElement('div');
+                        msg.id = 'menu-empty';
+                        msg.className = 'menu-empty';
+                        msg.textContent = 'No dishes in this category at the moment.';
+                        menuGrid.appendChild(msg);
+                    }
+                } else if (emptyState) {
+                    emptyState.remove();
+                }
             }, 300);
         });
     });
 }
-
-/**
- * Table Reservation Modal System
  */
 function initReservationModal() {
     const openButtons = document.querySelectorAll('[data-open-modal="reservation"]');

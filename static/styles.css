@@ -450,6 +450,10 @@ section h2::after {
     border-color: var(--color-primary);
 }
 
+.menu-tab.active {
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+}
+
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -496,6 +500,13 @@ section h2::after {
     flex: 1;
     height: 1px;
     background: linear-gradient(to right, transparent, var(--color-primary), transparent);
+    transform: scaleX(0);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+}
+
+.menu-category-heading.reveal.revealed .heading-line {
+    transform: scaleX(1);
 }
 
 .heading-text {
@@ -507,10 +518,44 @@ section h2::after {
     white-space: nowrap;
 }
 
+.menu-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--sp-48) var(--sp-24);
+    color: var(--color-text-secondary);
+    font-style: italic;
+    font-size: var(--sz-16);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-medium);
+}
+
 .menu-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-strong);
+    box-shadow: var(--shadow-strong), 0 0 24px rgba(212, 175, 55, 0.12);
     border-color: var(--color-secondary);
+}
+
+.menu-card:hover .menu-card-header .price {
+    color: var(--color-secondary);
+    border-left-color: var(--color-secondary);
+}
+
+.menu-card-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(212, 175, 55, 0.12), transparent);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.menu-card:hover .menu-card-img::after {
+    opacity: 1;
 }
 
 .menu-card .ripple {
@@ -2028,6 +2073,11 @@ section, footer {
 
     .menu-grid {
         grid-template-columns: 1fr;
+        scroll-snap-type: y proximity;
+    }
+
+    .menu-card {
+        scroll-snap-align: start;
     }
 }
 
