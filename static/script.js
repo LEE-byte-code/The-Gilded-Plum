@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initIngredientDrawer();
     initChefTableAvailability();
     initCustomCursor();
+    initParallax();
     initPageSkeleton();
     initImageSkeleton();
 });
@@ -160,14 +161,33 @@ function initScrollReveal() {
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                obs.unobserve(entry.target); // Animates only once
+                const target = entry.target;
+                // Stagger menu cards
+                if (target.classList.contains('menu-card')) {
+                    const cards = target.closest('.menu-grid')?.querySelectorAll('.menu-card');
+                    if (cards) {
+                        let idx = 0;
+                        cards.forEach(c => {
+                            if (c.classList.contains('revealed')) idx++;
+                        });
+                        target.style.transitionDelay = `${idx * 0.08}s`;
+                    }
+                }
+                target.classList.add('revealed');
+                obs.unobserve(target);
             }
         });
     }, observerOptions);
 
     revealElements.forEach(element => {
         observer.observe(element);
+    });
+
+    // Ensure staggered cards clear their delay after animation
+    document.querySelectorAll('.menu-card.reveal').forEach(card => {
+        card.addEventListener('transitionend', () => {
+            card.style.transitionDelay = '';
+        }, { once: true });
     });
 }
 
@@ -802,10 +822,10 @@ function initIngredientDrawer() {
             const content = section.querySelector('.accordion-content');
             if (i === 0) {
                 toggle.setAttribute('aria-expanded', 'true');
-                content.style.display = 'block';
+                content.classList.add('open');
             } else {
                 toggle.setAttribute('aria-expanded', 'false');
-                content.style.display = 'none';
+                content.classList.remove('open');
             }
             section.classList.remove('stagger-enter');
         });
@@ -840,10 +860,10 @@ function initIngredientDrawer() {
 
                 if (isExpanded) {
                     toggle.setAttribute('aria-expanded', 'false');
-                    content.style.display = 'none';
+                    content.classList.remove('open');
                 } else {
                     toggle.setAttribute('aria-expanded', 'true');
-                    content.style.display = 'block';
+                    content.classList.add('open');
                     // Trigger reflow for entrance animation
                     requestAnimationFrame(() => {
                         content.classList.remove('accordion-enter');
@@ -867,6 +887,17 @@ function initIngredientDrawer() {
         card.addEventListener('click', (e) => {
             // Prevent drawer if clicking tab buttons or action buttons
             if (e.target.closest('.btn') || e.target.closest('.menu-tabs')) return;
+
+            // Ripple effect
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            const rect = card.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+            card.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove());
 
             const dishName = card.querySelector('h3').textContent.trim();
             const imgUrl = card.querySelector('img').getAttribute('src');
@@ -893,8 +924,19 @@ function initChefTableAvailability() {
     let totalSeats = 6;
     let availableSeats = 4;
 
-    const updateUI = () => {
+    const progressFill = document.getElementById('chef-seat-progress');
+
+    const updateUI = (animate) => {
         seatCounter.textContent = `Only ${availableSeats} seat${availableSeats !== 1 ? 's' : ''} remaining for tonight`;
+        if (animate) {
+            seatCounter.classList.remove('pulse');
+            void seatCounter.offsetWidth;
+            seatCounter.classList.add('pulse');
+        }
+        if (progressFill) {
+            const pct = (availableSeats / totalSeats) * 100;
+            progressFill.style.width = `${pct}%`;
+        }
         dotsContainer.innerHTML = '';
         for (let i = 0; i < totalSeats; i++) {
             const dot = document.createElement('div');
@@ -912,14 +954,14 @@ function initChefTableAvailability() {
         .then(data => {
             totalSeats = data.totalSeats;
             availableSeats = data.availableSeats;
-            updateUI();
+            updateUI(false);
         })
         .catch(() => {
             // Fallback to template data (already set via server in HTML)
             const scriptData = document.getElementById('chef-seat-counter')?.textContent || '';
             const match = scriptData.match(/(\d+)/);
             if (match) availableSeats = parseInt(match[1], 10);
-            updateUI();
+            updateUI(false);
         });
 
     // Poll every 30 seconds for live updates
@@ -929,10 +971,50 @@ function initChefTableAvailability() {
             .then(data => {
                 availableSeats = data.availableSeats;
                 totalSeats = data.totalSeats;
-                updateUI();
+                updateUI(true);
             })
             .catch(() => {});
     }, 30000);
+}
+
+/**
+ * Parallax scroll effect for hero and chef's table
+ */
+function initParallax() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const hero = document.querySelector('.hero');
+    const chefSection = document.querySelector('.chefs-table-card');
+    if (!hero && !chefSection) return;
+
+    // Fix hero background position to top, so JS can animate Y from 0
+    if (hero) {
+        hero.style.backgroundPosition = 'center 0px';
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                if (hero) {
+                    hero.style.backgroundPositionY = `${scrollY * 0.35}px`;
+                }
+                if (chefSection) {
+                    const rect = chefSection.getBoundingClientRect();
+                    const offset = rect.top;
+                    if (offset < window.innerHeight && offset > -rect.height) {
+                        const img = chefSection.querySelector('.chefs-table-img-container img');
+                        if (img) {
+                            img.style.transform = `translateY(${offset * 0.08}px)`;
+                        }
+                    }
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 }
 
 /**

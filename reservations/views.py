@@ -33,12 +33,16 @@ def index(request):
         'total_seats': chef_slot.total_seats,
     }
 
+    chef_available = chef_slot.available_seats
+    chef_total = chef_slot.total_seats
+
     return render(request, 'index.html', {
         'form': form,
         'contact_form': contact_form,
         'chef_data_json': json.dumps(chef_data),
-        'chef_available': chef_slot.available_seats,
-        'chef_total': chef_slot.total_seats,
+        'chef_available': chef_available,
+        'chef_total': chef_total,
+        'chef_pct': (chef_available / chef_total * 100) if chef_total > 0 else 0,
         'confirmed': request.GET.get('confirmed'),
     })
 
@@ -109,12 +113,15 @@ def book_reservation(request):
             except Exception:
                 chef_data = {'available_seats': 6, 'total_seats': 6}
 
+            chef_available = chef_data['available_seats']
+            chef_total = chef_data['total_seats']
             return render(request, 'index.html', {
                 'form': form,
                 'errors': form.errors,
                 'chef_data_json': json.dumps(chef_data),
-                'chef_available': chef_data['available_seats'],
-                'chef_total': chef_data['total_seats'],
+                'chef_available': chef_available,
+                'chef_total': chef_total,
+                'chef_pct': (chef_available / chef_total * 100) if chef_total > 0 else 0,
             })
 
     return redirect('/')
